@@ -1,0 +1,86 @@
+#!/bin/bash
+#Author: Javier Fernández Febrero
+
+
+echo "▄▄▄▄▄▄▄ ▄▄▄     ▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄    "
+echo "█       █   █   █      █       █       █       █  " 
+echo "█       █   █   █  ▄   █  ▄▄▄▄▄█    ▄▄▄█  ▄▄▄▄▄█  " 
+echo "█     ▄▄█   █   █ █▄█  █ █▄▄▄▄▄█   █▄▄▄█ █▄▄▄▄▄   " 
+echo "█    █  █   █▄▄▄█      █▄▄▄▄▄  █    ▄▄▄█▄▄▄▄▄  █  " 
+echo "█    █▄▄█       █  ▄   █▄▄▄▄▄█ █   █▄▄▄ ▄▄▄▄▄█ █  " 
+echo "█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█   "
+echo " "
+              
+
+
+##Variables
+
+AUTHORIZED_USER="javier"
+SERVICE='docker'
+LINUX="Linux"
+DARWIN="Darwin"
+CARPETA="clases"
+USUARIO="javierfdezfebrero"
+REPO="clase"
+GHP_PUBLICO='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'
+
+##Colores Linux
+
+DARKGRAY=$"\033[1;30m"
+RED=$"\033[0;31m"    
+LIGHTRED=$"\033[1;31m"
+GREEN=$'\033[0;32m'
+YELLOW=$"\033[1;33m"
+BLUE=$"\033[0;34m"    
+PURPLE=$"\033[0;35m"    
+LIGHTPURPLE=$"\033[1;35m"
+CYAN=$"\033[0;36m"    
+WHITE=$"\033[1;37m"
+END=$'\033[00m'
+
+
+if [ $USER != $AUTHORIZED_USER ]; then
+echo -e "${GREEN}   Este script non pode ser executado polo usuario${END} $USER" 1>&2
+exit 1
+fi
+
+
+case $1 in 
+
+		crear)
+			echo -e "${GREEN} Creando os directorios... ${END} "
+			cd $HOME
+			mkdir $CARPETA 
+			cd $CARPETA
+			git clone https://github.com/$USUARIO/$REPO.git
+			cd $HOME/$CARPETA/$REPO
+			mkdir Apuntes Traballos Exercicios
+		
+		;;
+
+		subir)
+			cd $HOME/$CARPETA/$REPO
+   		 	git remote set-url origin https://${GHP_PUBLICO}@github.com/${USUARIO}/${REPO}.git
+    		echo -e "${GREEN} Configurando repositorios de git.... ${END} " 
+			git add .
+			git commit -m "Subida $2 "
+			git push origin main
+			echo -e "${GREEN} Push realizado sobre repo scripts. ${END} "
+		;;
+
+		baixar)
+			cd $HOME/$CARPETA/$REPO
+   		 	git remote set-url origin https://${GHP_PUBLICO}@github.com/${USUARIO}/${REPO}.git
+    		echo -e "${GREEN} Configurando repositorios de git.... ${END} " 
+			git config pull.rebase false
+			git pull origin main
+			echo -e "${GREEN} Pull realizado sobre repo scripts. ${END} "
+		;;
+
+		*)
+		echo -e "${RED}ERROR${END}, ${GREEN} crear${END}, ${GREEN} subir${END} ou ${GREEN} baixar ${END} "
+		;;
+
+	esac
+
+
