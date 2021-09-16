@@ -15,7 +15,7 @@ echo " "
 
 ##Variables
 
-AUTHORIZED_USER="javier"
+AUTHORIZED_USER=$(whoami)
 SERVICE='docker'
 LINUX="Linux"
 DARWIN="Darwin"
