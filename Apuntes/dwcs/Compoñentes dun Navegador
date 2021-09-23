@@ -1,0 +1,9 @@
+Compoñentes dun Navegador
+
+- interfade usuario
+- motor de renderizado: traduce e amosa o contido
+- motor de procura ou busqueda: coordina as acciones entre a interface e o motor de renderizado
+- capa de rede: atende as solicitudes de rede
+- servidor de interface
+- interprete de js
+- capa de persistencia/almacen de datos
