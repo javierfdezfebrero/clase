@@ -31,16 +31,17 @@ switch ($usuario) {
                 break;
 }
 
+echo "<br>";
 
 
 
+$usuarios= array('Javier'=>'a', 'javi'=>'ab', 'Javi'=>'abc', 'javier'=>'abcd');
 
-$usuarios= array('Javier', 'javi', 'Javi', 'javier');
-
-foreach ($usuarios as $key) {
-if (strcmp ($usuario , $key ) == 0) { 
-      $resultado= 1;
-      break;
+foreach ($usuarios as $key => $value) {
+if ((strcmp ($usuario , $key ) == 0)
+        && (strcmp ($contrasinal , $value ) == 0)) { 
+                $resultado = 1;
+                break;
 
 }
 
