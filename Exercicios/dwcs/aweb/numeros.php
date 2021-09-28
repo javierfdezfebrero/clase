@@ -36,7 +36,7 @@ if (is_numeric($primerNumero) && is_numeric($segundoNumero) && is_numeric($terce
                         
         }
 
-        }elseif($segundoNumero > $primerNumero && $segundo){
+        }elseif($segundoNumero > $primerNumero && $segundoNumero > $tercerNumero){
                 if ( $primerNumero > $tercerNumero){
                         echo $segundoNumero. ">". $primerNumero . ">". $tercerNumero;
                 }else{
