@@ -1,0 +1,25 @@
+body {
+    color: blue;
+    font-size: 20pt;
+}
+
+div{
+    width: 200px;
+    height: 80px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+table{
+    border-spacing: 20px;
+}
+td{
+    width: 80px;
+    height: 40px;
+    margin: 20px;
+    border: 1px solid black;
+    background-color: gray;
+    
+}
