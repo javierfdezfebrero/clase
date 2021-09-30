@@ -25,7 +25,7 @@ echo "<th>Nº atómico</th>";
 
 $cantidade=0;
 foreach($elementos as $key => $value ){
-        if($key=$sel){
+        if($key==$sel){
         echo "<tr>";
         foreach($value as $campo =>$valor){
                 $cantidade=count($value);
