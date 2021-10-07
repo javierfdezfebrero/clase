@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8" />
+        <title>Cadeas de texto</title>
+</head>
+<body>
+<h2> Cadeas de texto </h2>
+
+<form method="_GET" action="cadeas.php">
+
+        <label>Introduce unha cadea de texto: </label><input type="text" name="texto"><br>
+        <label>Seleciona a funcion a palicar: </label>
+        <select name="funcion">
+          <option value="stripSlashes">stripSlashes()</option>
+          <option value="urlencode" selected>urlencode()</option>
+          <option value="urldecode">urldecode()</option>
+          <option value="nl2br">nl2br()</option>
+
+        </select>
+        <br>
+        <input type="submit" name="boton" value="Entrar">
+</form>
+
+</body>
+</html>
