@@ -1,0 +1,11 @@
+CREATE TABLE folla01.xogadores (
+	Id INT auto_increment NOT NULL,
+	DNI varchar(100) NULL,
+	Nome varchar(100) NULL,
+	Apelidos varchar(100) NULL,
+	Idade INT NULL,
+	PRIMARY KEY (Id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
