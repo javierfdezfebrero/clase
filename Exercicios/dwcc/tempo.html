@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style type="text/css">
+        body {}
+        
+        .div {
+            color: red;
+            border: 2px;
+            border-style: 2px;
+            background-color: aqua;
+            width: 200px;
+            height: 100px;
+        }
+        
+        #reloj,
+        #contaAtras {
+            text-size-adjust: 20px;
+            width: 150px;
+            height: 50px;
+            background-color: black;
+            padding-top: 25px;
+        }
+    </style>
+</head>
+
+<body onload="tempo(), contaAtras()">
+
+    <div class="div">
+        <div id="reloj">
+
+        </div>
+        <div id="contaAtras">
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function tempo() {
+            var fecha = new Date();
+            var horas = fecha.getHours();
+            var min = fecha.getMinutes();
+            var seg = fecha.getSeconds();
+
+            if (horas < 10) {
+                horas = '0' + horas;
+            }
+            if (min < 10) {
+                min = '0' + min;
+            }
+            if (seg < 10) {
+                seg = '0' + seg;
+            }
+            document.getElementById("reloj").innerHTML = horas + " : " + min + " : " + seg;
+
+            setTimeout(function() {
+                tempo()
+            }, 1000);
+
+        };
+
+        function contaAtras() {
+            var fecha = new Date();
+            var horas = fecha.getHours();
+            var min = fecha.getMinutes();
+            var seg = fecha.getSeconds();
+            var fechaLimite = new Date("2021, 10, 20, 15,25,00");
+            var minLimite = fechaLimite.getMinutes();
+
+            var tempoRestante = min - minLimite;
+
+            console.log(tempoRestante);
+
+            document.getElementById("contaAtras").innerHTML = "tempo restante" + tempito;
+            setTimeout(function() {
+                contaAtras()
+            }, 1000);
+
+
+        }
+    </script>
+
+
+</body>
+
+
+</html>
