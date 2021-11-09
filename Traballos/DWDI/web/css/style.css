@@ -128,7 +128,7 @@ hr {
 /* Footer Wrap */
 
 #f {
-    background: linear-gradient(to bottom, white 0%, white 70%, black 30%, black 100%);
+    background: linear-gradient(to bottom, white 0%, white 50%, black 50%, black 100%);
     padding-top: 70px;
     padding-bottom: 70px;
     text-align: center
@@ -149,11 +149,7 @@ hr {
 
 #f p {
     font-size: 20px;
-    color: #f2f2f2;
-}
-
-#f img {
-    text-align: center;
+    color: black;
 }
 
 
@@ -444,4 +440,13 @@ hr {
 
 .credits {
     color: #999;
+}
+
+.card-texto {
+    background-color: whitesmoke;
+}
+
+.mx-productos {
+    padding-left: 20%;
+    padding-right: 20%;
 }
