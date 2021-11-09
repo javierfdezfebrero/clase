@@ -450,3 +450,21 @@ hr {
     padding-left: 20%;
     padding-right: 20%;
 }
+
+.mx-hola {
+    padding-left: 20%;
+    padding-right: 20%;
+    background-color: black;
+    color: white;
+}
+
+.mx-hola h1 {
+    color: white;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.mx-hola img {
+    width: 200px;
+    height: 200px;
+}
