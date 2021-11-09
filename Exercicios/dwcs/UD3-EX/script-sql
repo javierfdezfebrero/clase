@@ -8,4 +8,38 @@ CREATE TABLE folla01.xogadores (
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+CREATE TABLE folla01.traxecto (
+	Orixen Varchar(100) NOT NULL,
+	Destino varchar(100) NOT NULL,
+	Distancia varchar(100) NOT NULL,
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+
+INSERT INTO folla01.traxecto
+(Orixe, Destino, Distancia)
+VALUES('Madrid', 'Segovia', 90201),
+VALUES('Madrid', 'A coruña', 596887),
+VALUES('Barcelona', 'Cadiz', 1152669),
+VALUES('Bilbao', 'Valencia', 622233),
+VALUES('Sevilla', 'Santander', 832067),
+VALUES('Oviedo', 'Badajoz', 682429);
+
+
+
+CREATE TABLE folla01.pinturas (
+
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_0900_ai_ci;
