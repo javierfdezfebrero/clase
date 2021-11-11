@@ -38,8 +38,43 @@ VALUES('Oviedo', 'Badajoz', 682429);
 
 
 CREATE TABLE folla01.pinturas (
-
+	nome Varchar(100) NOT NULL,
+	pintor varchar(100) NOT NULL,
+	ano varchar(100) NOT NULL,
 )
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO folla01.pinturas
+(nombre, pintor, ano)
+VALUES("Mona Lisa","Leonardo da Vinci",1510),
+VALUES("A persistencia da memoria","Salvador Dalí",1931),VALUES("O berro","Edvard  Munch",1893),
+VALUES("Guernica","Pablo Picasso",1937),
+VALUES("A persistencia da memoria","Salvador Dalí",1931),
+VALUES("A ronda de noite","Rembrandt",1642),
+VALUES("O bico","Gustav Klimt",1908),
+VALUES("As meninas","Diego Velázquez",1656),
+VALUES("Un domingo pola tarde na illa de Grand Jatte","Georges Seurat",1884);
+
+
+
+
+CREATE TABLE folla01.libro (
+	titulo varchar(100) NULL,
+	autor varchar(100) NULL,
+	editorial varchar(100) NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('El médico', 'Noah Gordon', 'Time Warner');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('Marina Carlos', 'Ruíz Zafón', 'Edebé');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('La hoguera de las vanidades', 'Tom Wolfe', 'RBA editores');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('El libro de las ilusiones', 'Paul Auster', 'Faber');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('La muerte en Venecia', 'Michael Mann', 'Anaya');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('A sangre fría', 'Truman Capote', 'Illusions');
+INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('2001: Odisea en el espacio', 'Arthur C. Clarke', 'P & J');
