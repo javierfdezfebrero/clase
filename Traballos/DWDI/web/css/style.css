@@ -478,3 +478,8 @@ span {
 .bg-dark-menu {
     background-color: black;
 }
+
+.bordes {
+    border-style: solid;
+    border-color: darkgoldenrod;
+}
