@@ -460,13 +460,11 @@ hr {
 
 .mx-hola h1 {
     color: white;
-    padding-left: 20%;
-    padding-right: 20%;
 }
 
 .mx-hola img {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
 }
 
 .hola {
@@ -475,4 +473,8 @@ hr {
 
 span {
     color: darkgoldenrod;
+}
+
+.bg-dark-menu {
+    background-color: black;
 }
