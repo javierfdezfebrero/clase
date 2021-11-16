@@ -78,3 +78,18 @@ INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('El libro de las il
 INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('La muerte en Venecia', 'Michael Mann', 'Anaya');
 INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('A sangre fría', 'Truman Capote', 'Illusions');
 INSERT INTO folla01.libro (titulo, autor, editorial) VALUES ('2001: Odisea en el espacio', 'Arthur C. Clarke', 'P & J');
+
+
+
+
+CREATE TABLE folla02.disco (
+	Titulo varchar(100) NULL,
+	Grupo varchar(100) NULL,
+	Disco varchar(100) NULL,
+	Ano INT NULL,
+	Duracion INT NULL,
+	Selecionado BOOL NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
