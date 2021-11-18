@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>apartado01</title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="cookies.js"></script>
+</head>
+
+<body>
+    <label>Nome: </label>
+    <input type="text" id="nome" name="nome" /><br/>
+    <label>Valor: </label>
+    <input type="text" id="valor" name="valor" /><br/>
+
+
+    <input type="button" value="crear" onclick="crearCookie()"></input><br/>
+    <input type="button" value="leer" onclick="leerCookie()"></input><br/>
+    <input type="button" value="modificar" onclick="modificarCookie('mais')"></input><br/>
+    <input type="button" value="eliminar" onclick="eliminarCookie('menos')"></input><br/>
+
+    <div id="resultado">
+
+    </div>
+
+
+</body>
+
+</html>
