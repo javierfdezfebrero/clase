@@ -230,7 +230,8 @@ span {
     margin-top: 20px;
     padding-left: 20%;
     padding-right: 20%;
-    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 90%, black 10%, black 100%);
+    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 95%, black 5%, black 100%);
+    color: darkgoldenrod;
 }
 
 .mx-producto-dark {
@@ -239,4 +240,5 @@ span {
     padding-top: 5%;
     padding-bottom: 5%;
     background-color: black;
+    color: darkgoldenrod;
 }
