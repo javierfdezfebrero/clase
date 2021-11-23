@@ -2,30 +2,37 @@ function crearCookie() {
     nome = document.getElementById("nome").value;
     valor = document.getElementById("valor").value;
 
-    miStorage = window.sessionStorage;
-    miStorage.setItem(nome, valor);
-
-
+    document.cookie = nome + '=' + valor + '; max-age=1000; path=/;';
 
 }
 
 
 function leerCookie() {
 
-    miStorage = window.sessionStorage;
     var nome = document.getElementById("nome").value;
 
+
     if (nome) {
-        if (!localStorage.getItem('nome')) {
-
-            document.getElementById("resultado").innerHTML = nome + miStorage.getItem(nome);
+        var existe;
+        var cookies = document.cookie.split('; ');
+        for (let i = 0; i < cookies.length; i++) {
+            var cookiesArr = cookies[i].split('=');
+            console.log(cookies[i]);
+            if (nome == cookiesArr[0]) {
+                existe = cookies[i];
+            }
 
         }
+
+        if (existe) {
+            document.getElementById("resultado").innerHTML = existe;
+        } else {
+            document.getElementById("resultado").innerHTML = "Non hai cookies";
+        }
+
+
     } else {
-        for (let index = 0; index < miStorage.length; index++) {
-            document.getElementById("resultado").innerHTML = document.getElementById("resultado").innerHTML + miStorage.key(index);
-        }
-
+        document.getElementById("resultado").innerHTML = document.cookie;
     }
 }
 
@@ -35,7 +42,7 @@ function modificarCookie() {
     var valor = document.getElementById("valor").value;
 
 
-    if (nome) {
+    if (nome && valor) {
         var existe
         var cookies = document.cookie.split('; ');
         for (let i = 0; i < cookies.length; i++) {
