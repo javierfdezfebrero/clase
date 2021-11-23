@@ -12,22 +12,17 @@ function crearCookie() {
 
 function leerCookie() {
 
+    miStorage = window.sessionStorage;
     var nome = document.getElementById("nome").value;
 
 
-    if (nome) {
+    if (!localStorage.getItem('nome')) {
 
-        var cookies = miStorage.getItem(nome);
-        console.log(cookies)
-        if (cookies) {
-            document.getElementById("resultado").innerHTML = miStorage.getItem(nome);
-        } else {
-            document.getElementById("resultado").innerHTML = "Non hai cookies";
-        }
+        document.getElementById("resultado").innerHTML = nome + miStorage.getItem(nome);
 
 
     } else {
-        document.getElementById("resultado").innerHTML = document.cookie;
+        document.getElementById("resultado").innerHTML = miStorage;
     }
 }
 
