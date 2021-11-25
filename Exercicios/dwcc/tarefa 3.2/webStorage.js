@@ -23,7 +23,7 @@ function leerCookie() {
         }
     } else {
         for (let index = 0; index < miStorage.length; index++) {
-            document.getElementById("resultado").innerHTML = document.getElementById("resultado").innerHTML + miStorage.key(index);
+            document.getElementById("resultado").innerHTML = document.getElementById("resultado").innerHTML + "<br>" + miStorage.getItem(miStorage.key(index));
         }
 
     }

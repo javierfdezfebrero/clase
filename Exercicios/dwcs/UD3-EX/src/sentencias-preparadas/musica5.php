@@ -58,25 +58,27 @@ $usuario="root";
 $passwd="root";
 $base="musica";
 //CONECTAMOS
-$conexion = new mysqli($servidor, $usuario, $passwd, $base); //CONECTAMOS COA NOTACIÓN POO
+$conexion = new mysqli($servidor, $usuario, $passwd, $base); //CONECTAMOS 
 if($conexion->connect_error)
 die("Non é posible conectar coa BD: ". $conexion->connect_error);
 $conexion->set_charset("utf8");
 //PREPARAMOS A SENTENCIA:
-
+$sentenciaListaTemas=$conexion->prepare("SELECT * from tema");
 
 if ( isset($_GET['listaTemas'] )) {
     $sentenciaListaTemas=$conexion->prepare("SELECT * from tema");
+
     
         $sentenciaListaTemas->execute();
         $resultado=$sentenciaListaTemas->get_result();
 
-        while($fila=$resultado->fetch_array(MYSQLI_BOTH) )
-            foreach ($fila as $key => $value) {
-                $srcImaxe= $key['Imaxe'];
-                $tituloDisco=$key['Titulo'];
-                $autorDisco=$key['Autor'];
-                $anoDisco=$key['Ano'];
+
+        while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
+          
+                $srcImaxe= $fila['Imaxe'];
+                $tituloDisco=$fila['Titulo'];
+                $autorDisco=$fila['Autor'];
+                $anoDisco=$fila['Ano'];
                 echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
                 </div>";
             }
@@ -85,114 +87,115 @@ if ( isset($_GET['listaTemas'] )) {
        
 }
 if ( isset($_GET['listaPorTitulo'] )) {
-    $conexion=mysqli_connect("db","root","root", "musica");
-    if ($conexion)
-    {
-        mysqli_set_charset($conexion,"utf8");
-		
-		$sql = "SELECT  * from tema order by Titulo asc";
+	$sentenciaListaTitulo=$conexion->prepare("SELECT * from tema order by Titulo");
+	$sentenciaListaTitulo->execute();
+	$resultado=$sentenciaListaTitulo->get_result();
 
-		$resultado = mysqli_query($conexion, $sql);
-        if ($resultado) {
-			foreach ($resultado as $key => $value) {
-				$srcImaxe= $value['Imaxe'];
-				$tituloDisco=$value['Titulo'];
-				$autorDisco=$value['Autor'];
-				$anoDisco=$value['Ano'];
-				echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
-				</div>";
-			}
+
+	while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
+	  
+			$srcImaxe= $fila['Imaxe'];
+			$tituloDisco=$fila['Titulo'];
+			$autorDisco=$fila['Autor'];
+			$anoDisco=$fila['Ano'];
+			echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
+			</div>";
 		}
-       
-    }
-    else{
-    echo "Fallou a conexión coa base de datos";
-    }
-    mysqli_close($conexion);
+
+	$sentenciaListaTitulo->close();
 }
 if ( isset($_GET['listaPorAutor'] )) {
-    $conexion=mysqli_connect("db","root","root", "musica");
-    if ($conexion)
-    {
-        mysqli_set_charset($conexion,"utf8");
-		
-		$sql = "SELECT  * from tema order by Autor asc";
+    $sentenciaListaAutor=$conexion->prepare("SELECT * from tema order by Autor");
+	$sentenciaListaAutor->execute();
+	$resultado=$sentenciaListaAutor->get_result();
 
-		$resultado = mysqli_query($conexion, $sql);
-        if ($resultado) {
-			foreach ($resultado as $key => $value) {
-				$srcImaxe= $value['Imaxe'];
-				$tituloDisco=$value['Titulo'];
-				$autorDisco=$value['Autor'];
-				$anoDisco=$value['Ano'];
-				echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
-				</div>";
-			}
+
+	while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
+	  
+			$srcImaxe= $fila['Imaxe'];
+			$tituloDisco=$fila['Titulo'];
+			$autorDisco=$fila['Autor'];
+			$anoDisco=$fila['Ano'];
+			echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
+			</div>";
 		}
-       
-    }
-    else{
-    echo "Fallou a conexión coa base de datos";
-    }
-    mysqli_close($conexion);
+
+	$sentenciaListaAutor->close();
 }
 if ( isset($_GET['verTema'] )) {
-    $conexion=mysqli_connect("db","root","root", "musica");
-    if ($conexion)
-    {
-        mysqli_set_charset($conexion,"utf8");
-		$autor= $_GET['tema'];
-		
-		$sql = "SELECT  * from tema where Autor like '$autor'";
+	$titulo= $_GET['titulo'];
+    $sentenciaVerTema=$conexion->prepare("SELECT * from tema where Titulo like ?");
+	$sentenciaVerTema->bind_param("s", $titulo);
+	$sentenciaVerTema->execute();
+	$resultado=$sentenciaVerTema->get_result();
 
-		$resultado = mysqli_query($conexion, $sql);
-        if ($resultado) {
-			foreach ($resultado as $key => $value) {
-				$srcImaxe= $value['Imaxe'];
-				$tituloDisco=$value['Titulo'];
-				$autorDisco=$value['Autor'];
-				$anoDisco=$value['Ano'];
-				echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
-				</div>";
-			}
+
+	while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
+	  
+			$srcImaxe= $fila['Imaxe'];
+			$tituloDisco=$fila['Titulo'];
+			$autorDisco=$fila['Autor'];
+			$anoDisco=$fila['Ano'];
+			echo "<div class='tema'><img src='imaxes/$srcImaxe.jpg'><br>$tituloDisco<br/>$autorDisco<br/>$anoDisco<br/>
+			</div>";
 		}
-       
-    }
-    else{
-    echo "Fallou a conexión coa base de datos";
-    }
-    mysqli_close($conexion);
+
+	$sentenciaVerTema->close();
 }
 
 if ( isset($_GET['listaPorAutorSelecionado'] )) {
-	$conexion=mysqli_connect("db","root","root", "musica");
-    if ($conexion)
-    {
-        mysqli_set_charset($conexion,"utf8");
-		
-		$sql = "SELECT  * from tema";
+	$sentenciaListaTemas->execute();
+	$resultado=$sentenciaListaTemas->get_result();
 
-		$resultado = mysqli_query($conexion, $sql);
-        if ($resultado) {
-			echo '<div><form action="folla3.3.php" method="get"> <select  name="tema" id="tema">';
-			foreach ($resultado as $key => $value) {
+	echo '<div><form action="musica5.php" method="get"> <select  name="titulo" id="titulo">';
+	while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
 				
-				$tituloDisco=$value['Titulo'];
+				$tituloDisco=$fila['Titulo'];
 				echo "<option value='$tituloDisco'>$tituloDisco</option>";
-
-			}
-			
-			echo '</select>';
-			echo '<button  type="submit" name="verTema" id="editar">Ver Tema</button>';
-			echo '</form> </div>';
+				
 		}
+		echo '</select>';
+		echo '<button  type="submit" name="verTema" id="editar">Ver Tema</button>';
+		echo '</form> </div>';
+		$sentenciaListaTemas->close();
        
     }
-    else{
-    echo "Fallou a conexión coa base de datos";
-    }
-    mysqli_close($conexion);
-}
+   
+	if ( isset($_GET['engadir'] )) {
+		echo '<div>
+		<form action="modificarbbdd.php" method="POST" enctype="multipart/form-data">
+		Titulo:<input type="text" name="titulo"/>
+		Autor:<input type="text" name="autor"/>
+		Ano:<input type="text" name="ano"/>
+		Duracion:<input type="text" name="duracion"/>
+		Imaxe:<input name="meuArquivo" type="file"/>
+			<input name="subir" type="submit" value="Engadir"/>
+		</form>
+		</div><br>';
+	}
+	
+	if ( isset($_GET['editar'] )) {
+		echo '<div>
+		<form action="editarbbdd.php" method="POST" enctype="multipart/form-data">
+		<select  name="tema" id="tema">
+	
+			<option value="The Beatles">The Beatles</option>
+			<option value="Bruce Springsteen">Bruce Springsteen</option>
+			<option value="Pink Floyd">Pink Floyd</option>
+			<option value="The Beach Boys">The Beach Boys</option>
+			<option value="Eagles">Eagles</option>
+			<option value="John Lennon">John Lennon</option>
+			<option value="The Rolling Stone">The Rolling Stones</option>
+			<option value="The Doors">The Doors</option>
+			<option value="Bob Dylan">Bob Dylan</option>
+			<option value="Led Zeppelin">Led Zeppelin</option>
+	
+		</select>
+			<input name="edit" type="submit" value="editar"/>
+		</form>
+		</div><br>';
+	}
+
 
 
 $conexion->close();
