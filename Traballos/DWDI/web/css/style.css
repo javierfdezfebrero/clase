@@ -190,13 +190,7 @@ hr {
     background-color: black;
     color: white;
 }
-.mx-guia{
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-bottom: 10px;
-    background-color: black;
-    color: white;
-}
+
 table th{
     background-color: white;
 }
@@ -258,7 +252,7 @@ span {
 }
 
 .margen-dereito{
-    margin-right: 10%;
+    margin-right: 20%;
 }
 
 /* colores */
