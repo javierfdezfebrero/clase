@@ -234,14 +234,16 @@ span {
 }
 
 .mx-producto {
-
-    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 85%, black 15%, black 100%);
+    padding-left: 20%;
+    padding-right: 20%;
+    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 80%, black 20%, black 100%);
     color: darkgoldenrod;
     font-size: 20px;
 }
 
 .mx-producto-dark {
-
+    padding-left: 20%;
+    padding-right: 20%;
     background-color: black;
     color: darkgoldenrod;
     font-size: 20px;
