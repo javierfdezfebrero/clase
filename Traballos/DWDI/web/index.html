@@ -17,6 +17,9 @@
 
     <!-- Bootstrap CSS File -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 
 
     <!-- Libraries CSS Files -->
@@ -37,22 +40,27 @@
     <!-- ========== HEADER SECTION ========== -->
     <section id="home" name="home"></section>
     <div id="headerwrap">
-        <ul class="nav justify-content-end bg-transparent">
+        <ul class="nav justify-content-end bg-transparent margen-dereito">
             <li class="nav-item">
                 <a class="navbar-link bg-transparent" href="index.html">
-                    <img src="img/gz.png" width="30" height="30" class="d-inline-block align-top" alt=""> Galego
+                    <img src="img/gz.png" width="30" height="30" class="d-inline-block rounded-circle align-top" alt="">
                 </a>
             </li>
             <li class="nav-item">
                 <a class="navbar-link bg-transparent" href="lang/es/index.html">
-                    <img src="img/es.png" width="30" height="30" class="d-inline-block align-top" alt=""> Castelan
+                    <img src="img/es.png" width="30" height="30" class="d-inline-block rounded-circle align-top" alt=""> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-link bg-transparent" href="lang/es/index.html">
+                    <img src="img/pt.jpg" width="30" height="30" class="d-inline-block rounded-circle align-top" alt="">
                 </a>
             </li>
         </ul>
         <div class="container">
             <br>
-            <div class="row">
-                <h1>Migas Amigas</h1>
+            <div class="row texto-titulo">
+                <h1 class="">Migas Amigas</h1>
                 <br>
                 <h3>O teu Pan de confianza</h3>
                 <br>
@@ -106,19 +114,25 @@
         <div class="col-12 col-sm-6">
             <img class="rounded bordes " src="img/logo.png" alt="">
         </div>
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-sm-8 col-lg-6">
             <h1><span> Nº de telefono:</span></h1>
-            <h1>9821578548</h1>
+            <h1>9821578548 <span class="material-icons">phone</span></h1>
             <h1><span> Donde estamos?</span></h1>
-            <h1>Santiago de Compostela</h1>
+           <h1><a href="https://duckduckgo.com/?t=ffab&q=Santiago+de+Compostela&atb=v211-1&ia=web&iaxm=maps&strict_bbox=0&bbox=52.48846769042284%2C13.330256938934326%2C52.482398101042975%2C13.345191478729248&metatoken=1">Santiago de Compostela </a><span class="material-icons">place
+        </span></h1>
             <h1><span> Destino:</span></h1>
-            <h1>A túa boca</h1>
+            <h1>A túa boca <span class="material-icons">
+                bakery_dining
+                </span></h1>
 
         </div>
     </div>
+
+    <!--<img class="img-fluid" src="img/map.png">  enlace a google maps api-->
     <div class="row mx-margen">
 
     </div>
+
     <div id="copyrights">
         <div class="container">
             <p>
@@ -126,7 +140,7 @@
             </p>
             <div class="credits">
 
-                Javier Fernández Febrero
+                Javier Fernández Febrero <a href="guia_de_estilos/estilos.html"> Guía de estilos</a>
             </div>
         </div>
     </div>

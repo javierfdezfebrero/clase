@@ -45,7 +45,7 @@ p {
 /* Links */
 
 a {
-    color: #f85c37;
+    color: white;
     word-wrap: break-word;
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -105,15 +105,15 @@ hr {
 
 #headerwrap h1 {
     margin-top: 150px;
-    color: white;
+    color: darkgoldenrod;
     font-size: 100px;
     font-weight: 700;
 }
 
 #headerwrap h3 {
-    color: white;
+    color: darkgoldenrod;
     font-size: 70px;
-    font-weight: 100;
+    font-weight: 300;
     font-family: 'EB Garamond', serif;
     font-style: oblique;
 }
@@ -186,10 +186,23 @@ hr {
 .mx-hola {
     padding-left: 20%;
     padding-right: 20%;
+    padding-bottom: 10px;
     background-color: black;
     color: white;
 }
-
+.mx-guia{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 10px;
+    background-color: black;
+    color: white;
+}
+table th{
+    background-color: white;
+}
+table tr{
+    background-color: white;
+}
 .mx-hola h1 {
     color: white;
 }
@@ -227,18 +240,67 @@ span {
 }
 
 .mx-producto {
-    margin-top: 20px;
-    padding-left: 20%;
-    padding-right: 20%;
-    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 95%, black 5%, black 100%);
+
+    background: linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 85%, black 15%, black 100%);
     color: darkgoldenrod;
+    font-size: 20px;
 }
 
 .mx-producto-dark {
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+
     background-color: black;
     color: darkgoldenrod;
+    font-size: 20px;
+}
+
+.texto-titulo{
+    -webkit-text-stroke: 2px white;
+}
+
+.margen-dereito{
+    margin-right: 10%;
+}
+
+/* colores */
+
+.colorblack {
+    background-color: black;
+}
+
+.colordarkgold{
+    background-color: darkgoldenrod;
+
+}
+
+.colorwhite2{
+    background-color: #f2f2f2;
+}
+.colorcreditos{
+    background-color: #999;
+}
+
+/* Letras */
+
+.letrabody{
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: black;
+    
+}
+.letratitulo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: black;
+    
+}
+
+
+
+/* folla de Guía d estilos */
+
+button{
+    margin: 10px 10px 10px 10px;
+}
+li{
+color: black;
 }
