@@ -52,9 +52,12 @@ if(isset($_GET['gardarProducto'])){
 
     $conexion = conexion();
     //PREPARAMOS A SENTENCIA:
-        $sentenciaListaFamilias=$conexion->prepare("Insert into productos(nombre, nombre corto, descripcion, pvp, familia) values(?,?,?,?,?) ");
-        $sentenciaListaFamilias->bind_param("sssss", $novoproducto ,$nomeCorto,  $descripcion, $pvp,$familia);
+ 
+        $sentenciaListaFamilias=$conexion->prepare("INSERT INTO productos(nombre, nombre_corto, descripcion, pvp, familia) values(? ? ? ? ?) ");
+        $sentenciaListaFamilias->bind_param("sssis", $novoproducto ,$nomeCorto,  $descripcion, $pvp, $familia);
         $sentenciaListaFamilias->execute();        
+        
+      
 }
 
 function mostrarProductos(){
@@ -70,7 +73,6 @@ function mostrarProductos(){
             
             echo "<option value=".$fila['cod'].">".$fila['nombre']."</option>";
         }
-        echo "<option value='todos'>Todos</option>";
 
 }
 
