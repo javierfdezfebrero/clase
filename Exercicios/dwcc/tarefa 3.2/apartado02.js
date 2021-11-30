@@ -2,9 +2,30 @@ function crearCookie() {
     nome = document.getElementById("nome").value;
     valor = document.getElementById("valor").value;
 
-    miStorage = window.sessionStorage;
-    miStorage.setItem(nome, valor);
 
+    miStorage = window.sessionStorage;
+    var nome = document.getElementById("nome").value;
+    var existe;
+
+    if (nome) {
+        for (let i = 0; i < miStorage.length; i++) {
+            if (nome == miStorage.key(i)) {
+
+                existe = miStorage.key(1);
+            }
+        }
+
+        if (existe) {
+            document.getElementById("resultado").innerHTML = "Xa existe a cookie";
+        } else {
+            miStorage = window.sessionStorage;
+            miStorage.setItem(nome, valor);
+        }
+
+
+    } else {
+        document.getElementById("resultado").innerHTML = "Tes que introducir unha nome e un valor";
+    }
 
 
 }

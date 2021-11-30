@@ -2,7 +2,28 @@ function crearCookie() {
     nome = document.getElementById("nome").value;
     valor = document.getElementById("valor").value;
 
-    document.cookie = nome + '=' + valor + '; max-age=1000; path=/;';
+    if (nome) {
+        var existe;
+        var cookies = document.cookie.split('; ');
+        for (let i = 0; i < cookies.length; i++) {
+            var cookiesArr = cookies[i].split('=');
+            console.log(cookies[i]);
+            if (nome == cookiesArr[0]) {
+                existe = cookies[i];
+            }
+
+        }
+
+        if (existe) {
+            document.getElementById("resultado").innerHTML = "Xa existe a cookie";
+        } else {
+            document.cookie = nome + '=' + valor + '; max-age=1000; path=/;';
+        }
+
+
+    } else {
+        document.getElementById("resultado").innerHTML = "Tes que introducir unha nome e un valor";
+    }
 
 }
 
