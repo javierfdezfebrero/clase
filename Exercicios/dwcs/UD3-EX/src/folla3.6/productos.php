@@ -11,9 +11,18 @@
             
             while($fila=$resultado->fetch_array(MYSQLI_BOTH) ){
           
-                echo $fila['id']." ".$fila['nombre']." ".$fila['nombre_corto']." ".$fila['descripcion']." ".$fila['pvp']." ".$fila['familia'];
+                echo '<form action="detalle.php?familia=".$familia."" method="GET">';
+
+                echo $fila['id']." ".$fila['nombre']." ".$fila['nombre_corto']." ".substr($fila['descripcion'],0,100)." ".$fila['pvp']." ".$fila['familia'];
+                $producto=$fila['nombre'];
+                echo "<button type='submit' name='producto' value='$producto'>Detalle</button><br>";
+                echo '</form>';
+                $producto=$fila['nombre'];
+                echo "<a href='detalle.php?producto=$producto'>detalle enlace</a>";
             }
-            
+            echo '<form action="inicio.php" method="GET">';
+            echo '<button type="submit" name="detalle">Inicio</button><br>';
+            echo '</form>';
     }
 
     function conexion(){
