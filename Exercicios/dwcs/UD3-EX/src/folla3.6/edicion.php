@@ -53,7 +53,7 @@ if(isset($_GET['gardarProducto'])){
     $conexion = conexion();
     //PREPARAMOS A SENTENCIA:
  
-        $sentenciaListaFamilias=$conexion->prepare("INSERT INTO productos(nombre, nombre_corto, descripcion, pvp, familia) values(? ? ? ? ?) ");
+        $sentenciaListaFamilias=$conexion->prepare("INSERT INTO productos(nombre, nombre_corto, descripcion, pvp, familia) values(? ,?, ?, ?, ?) ");
         $sentenciaListaFamilias->bind_param("sssis", $novoproducto ,$nomeCorto,  $descripcion, $pvp, $familia);
         $sentenciaListaFamilias->execute();        
         

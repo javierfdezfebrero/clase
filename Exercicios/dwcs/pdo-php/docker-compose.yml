@@ -1,0 +1,38 @@
+version: "3"
+ 
+services:
+   
+  servicio_php-apache-pdo:
+    container_name: php-apache-mysql-pdo
+    #image: toasterlint/php-apache-mysql
+    build: .
+    volumes:
+      # Montamos nuestra web desde fuera en el directorio web del contenedor
+      - ./php/src:/var/www/html
+    ports:
+      - 8000:80
+
+  db-pdo:
+    container_name: db-pdo
+    image: mysql
+    restart: always
+    environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: proba
+     MYSQL_USER: usuario
+     MYSQL_PASSWORD: abc123.
+    volumes:
+     - ./dbdata:/var/lib/mysql
+    ports:
+     - 9906:3306
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+     - 8080:80
+    environment:
+     - PMA_ARBITRARY=1
+            
+            
+               
+         
