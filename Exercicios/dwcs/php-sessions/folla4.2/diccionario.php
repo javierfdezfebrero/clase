@@ -2,6 +2,16 @@
 session_start();
 
 $diccionario= array();
+/*
+if (file("dicionario.txt")){
+    $dicionarioArray = file("dicionario.txt");
+    for($i=0;$i<count($dicionarioArray);$i++)
+    {
+    $campo = explode("|", $dicionarioArray[$i]);
+    $diccionario[$campo[0]]= $campo[1];
+    }
+}
+*/
 
 if(isset($_SESSION['diccionario'])){
     $diccionario=$_SESSION['diccionario'];
@@ -27,6 +37,13 @@ if (isset($_GET['eliminarElemento'])) {
     unset($diccionario[$palabraEliminar]);
     echo "Eliminamos a palabra";
 }
+
+/*
+if(!($fich=fopen('dicionario.txt','w')))
+return;
+foreach($dicionario as $key=>$value)
+fprintf($fich,"%s|%s\n",$key,$value);
+*/
 
 $_SESSION['diccionario'] =$diccionario;
 
