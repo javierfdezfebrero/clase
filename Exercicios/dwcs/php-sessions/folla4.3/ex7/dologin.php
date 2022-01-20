@@ -26,8 +26,6 @@
 
     $usuario = $_SERVER['PHP_AUTH_USER'];
     $sontrasinal = $_SERVER['PHP_AUTH_PW'];
-    
-
 
 
     //PREPARAMOS A SENTENCIA:
