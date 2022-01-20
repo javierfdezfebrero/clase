@@ -17,13 +17,15 @@
 
 
 
-    $usuario = $_SERVER['PHP_AUTH_USER'];
-    $sontrasinal = $_SERVER['PHP_AUTH_PW'];
+    
 
     if (isset($_GET['entrar'])) {
         $usuario = $_GET['usuario'];
         $contrasinal = $_GET['contrasinal'];
     }
+
+    $usuario = $_SERVER['PHP_AUTH_USER'];
+    $sontrasinal = $_SERVER['PHP_AUTH_PW'];
 
 
 
