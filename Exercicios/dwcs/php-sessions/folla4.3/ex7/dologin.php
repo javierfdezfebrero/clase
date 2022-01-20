@@ -1,5 +1,6 @@
 <?php
 
+// Javier Fernández Febrero
 
     $servidor = "db-pdo-2";
     $usuario = "root";
