@@ -12,12 +12,7 @@
         $conPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $ex) {
         die("Erro na conexión mensaxe: " . $ex->getMessage());
-    }
-
-
-javier
-
-    
+    } 
 
     if (isset($_GET['entrar'])) {
         $usuario = $_GET['usuario'];
