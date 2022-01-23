@@ -1,0 +1,20 @@
+<h1>Apartado 2</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>clasi</th>
+      <th>fruta 1</th>
+      <th>fruta 2</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let arr of array; let i = index;">
+       <td>{{i}}</td>
+       <td *ngFor="let c of arr">
+           {{c}}
+       </td>
+    </tr>
+  </tbody>
+</table>
