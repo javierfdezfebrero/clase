@@ -14,34 +14,34 @@ try {
     $conPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $ex) {
     die("Erro na conexión mensaxe: " . $ex->getMessage());
-} 
+}
 
-if (isset($_GET['enter'])){
-    $user= $_GET['user'];
-    $pw= $_GET['pw'];
+if (isset($_GET['enter'])) {
+    $user = $_GET['user'];
+    $pw = $_GET['pw'];
     $data = "1870-01-01 00:00:00";
 
-   
-    
+
+
     //PREPARAMOS A SENTENCIA:
     $stmt = $conPDO->prepare("SELECT password from users where usuario like :user ");
     // DAMOS VALORES AOS PAŔÁMETROS E EXECUTAMOS:
 
     $stmt->bindParam(':user', $user);
-   
+
     if (!$stmt->execute()) {
         echo "Houbo un erro na execución da consulta";
     } else {
         $fila = $stmt->fetch();
         if ($stmt->rowCount() == 1) { //HAI UN USUARIO
             $contrasinalBD = $fila[0];
-        }else{
+        } else {
             header('Location: rexistro.html');
         }
     }
 
     if ($stmt->rowCount() == 0 || !password_verify($pw, $contrasinalBD)) {
-        
+
         echo "contrasinal incorrecta";
         $stmt = null;
         $conPDO = null;
@@ -52,28 +52,23 @@ if (isset($_GET['enter'])){
         $stmt->execute();
         $fila = $stmt->fetch();
         $rolBBDD = $fila[4];
-        
-        $_SESSION['rol']= $rolBBDD;
-        $_SESSION['user']= $user;
-        
-        
-     
 
+        $_SESSION['rol'] = $rolBBDD;
+        $_SESSION['user'] = $user;
+
+        header('Location: mostra.php');
     }
+} else {
 
-
-
-}else{
-
-    if ($_SESSION['rol']=="plantas") {
+    if ($_SESSION['rol'] == "plantas") {
         $stmt = $conPDO->prepare("SELECT * from users");
-            $stmt->execute();
-            $fila = $stmt->fetch();
-            print_r($fila);
-    }if ($_SESSION['rol'] == "animal") {
+        $stmt->execute();
+        $fila = $stmt->fetch.array();
+        print_r($fila);
+    }
+    if ($_SESSION['rol'] == "animal") {
         echo "holaaa, crack.";
     } else {
         echo "Erro o consultar o rol";
     }
-
 }
