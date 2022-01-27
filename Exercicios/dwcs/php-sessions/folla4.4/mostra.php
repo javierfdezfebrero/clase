@@ -63,8 +63,11 @@ if (isset($_GET['enter'])) {
     if ($_SESSION['rol'] == "plantas") {
         $stmt = $conPDO->prepare("SELECT * from users");
         $stmt->execute();
-        $fila = $stmt->fetch.array();
-        print_r($fila);
+        $fila = $stmt->fetch();
+        foreach ($fila as $key => $value) {
+        
+        }
+       
     }
     if ($_SESSION['rol'] == "animal") {
         echo "holaaa, crack.";
