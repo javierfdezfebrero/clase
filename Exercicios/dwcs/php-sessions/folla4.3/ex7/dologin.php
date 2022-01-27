@@ -29,7 +29,7 @@
     // DAMOS VALORES AOS PAŔÁMETROS E EXECUTAMOS:
 
     if (!$stmt->execute(array('usuario' => $usuario))) {
-        echo "Houbo un erro na execución da consulta";
+       
     } else {
         $fila = $stmt->fetch();
         if ($stmt->rowCount() == 1) { //HAI UN USUARIO
