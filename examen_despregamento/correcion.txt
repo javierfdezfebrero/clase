@@ -1,0 +1,27 @@
+Describe en qué consiste una aplicación web
+Maximum score1.5	
+No es correcto. Podrías hablar del cliente, del servidor, de los lenguajes, de cómo interactúan todos para crear una aplicación web. Nombras los protocolos involucrados.
+0.5 / 1.5
+Describe las arquitecturas web más habituales.
+Maximum score1.5	
+Las arquitecturas se refiere a los diseños hardware y/o software para crear una aplicación web. Modelo cliente- servidor, cliente-servidor-servidor de datos, Software involucrado en cada parte Modelo de capas (presentación, negocio, acceso a datos) MVC
+0.2 / 1.5
+Configurar servicios
+Maximum score0.5	
+ok Te falta habilitar mariadb
+0.4 / 0.5
+Instalar Moodle
+Maximum score2.5	
+No puedes dar permiso a todos para escribir en la carpeta www. Es un fallo de seguridad terrible. Nunca se dan permisos para que todos escriban ninguna carpeta. Quien hace eso es simplemente porque no sabe lo que hace, pero así funciona. Mal. y la BD? falta crear una capeta. ¿hiciste de verdad la instalación?
+0.9 / 2.5
+Usuarios FTP
+Maximum score1.5	
+Igual que creas un usuario virtual, tendría sentido crear un grupo virtual en lugar de uno real. No has dado permisos a la carpeta /srv/ftp para que el usuario virtual pueda escribir en ella No has configurado proftpd para que se pueda autenticar el usuario virtual No has enjaulado correctamente los usuarios
+0.25 / 1.5
+Securizar FTP
+Maximum score2	
+ok
+2 / 2
+Configurar vsftpd
+Maximum score0.5	
+se trataba de cambiar el puerto con la línea listen_port = 2021 por ejemplo
