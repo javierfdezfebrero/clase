@@ -11,10 +11,11 @@ session_start();
 <br/>
 <?php
 /* PODEMOS ACCEDER Á VARIABLE */
-echo "O usuario é ",$_SESSION['usuario'];
+echo "O usuario é ",$_SESSION['usuario']." , ". session_id();
 ?>
 <h2>Estou na páxina 1b!! </h2>
 <a href="sesion1a.php">Ir a sesion1a</a>
 <br>
+<a href="pecharsesion.php">Pechar Sesion</a>
 </body>
 </html>
