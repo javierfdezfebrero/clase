@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logueate</title>
+    <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
     <form action="login.php" method="post">
+        <section>
+            <h1>Logueate</h1>
+        </section>
         <section>
             <label for="">Usuario</label>
             <input type="text" name="usuario" id="">
@@ -18,8 +22,16 @@
             <input type="password" name="contrasinal" id="">
         </section>
         <section>
+            <label for="">Idioma</label>
+            <select name="idioma" id="">
+                <option value="galego">Galego</option>
+                <option value="español">Español</option>
+                <option value="portugues">Portugues</option>
+            </select>
+        </section>
+        <section>
             <button type="submit" name="enter">Entrar</button>
-            <button> <a href="rexistrarse.php"> Rexistrarse</a></button>
+            <button> <a href="rexistro.php"> Rexistrarse</a></button>
             <button> <a href="pechaSesion.php"> Pechar a sesion</a></button>
         </section>
     </form>

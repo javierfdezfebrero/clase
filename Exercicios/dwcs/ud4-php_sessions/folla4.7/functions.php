@@ -12,3 +12,22 @@ function crearPass($pass)
 {
     return password_hash($pass, PASSWORD_DEFAULT);
 }
+
+function saludarIdioma($idioma){
+    switch ($idioma) {
+        case 'galego':
+            $saludo="Ola, como estas?";
+            break;
+        case 'español':
+            $saludo="hola, ¿como estas?";
+            break;
+        case 'portugues':
+            $saludo="Olá, como está?";
+            break;
+        default:
+            $saludo="";
+            break;
+    }
+
+    return $saludo;
+}

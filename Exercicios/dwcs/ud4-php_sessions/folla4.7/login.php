@@ -53,6 +53,12 @@ if (isset($_POST['enter'])) {
 }
 
 
+// Seleccionamos o idiomo a gardamolo na COOKIE
+
+if(!empty($_GET['idioma'])){
+    $idioma = $_GET['idioma'];
+        setcookie('idioma', $idioma);
+}
 
 if (isset($_GET['error'])) {
     echo "O usuario no existe";
