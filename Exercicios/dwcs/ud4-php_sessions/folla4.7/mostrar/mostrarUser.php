@@ -23,7 +23,7 @@ if (isset($_SESSION['rol'])) {
 
             echo "<table><tr><th>Nome</th><th>Descripcion</th><th>Imaxe</th><th>Prezo Día</th></tr>";
             while ($fila = $pdoStatement->fetch(PDO::FETCH_ASSOC))
-                echo "<tr><td>" . $fila['nome'] . " </td><td>" . $fila['descripcion'] . "</td><td><img src='../" . $fila['imaxe'] . "'></img></td><td>" . $fila['prezo_dia'] . "</td><td><a href=reserva.php?id=".$fila['idProducto']."> Reservar</a> </td></tr>";
+                echo "<tr><td>" . $fila['nome'] . " </td><td>" . $fila['descripcion'] . "</td><td><img src='../" . $fila['imaxe'] . "' style='width:50px; height:50px;'></img></td><td>" . $fila['prezo_dia'] . "</td><td><a href=reserva.php?id=".$fila['idProducto']."> Reservar</a> </td></tr>";
             echo "<table>";
         }
     } catch (PDOException $e) {
