@@ -1,6 +1,9 @@
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
 }
  
 a {
@@ -22,4 +25,26 @@ ol, ul {
 
 form{
     margin: 20%;
+}
+
+th, td, tr{
+    border: 1px solid black;
+}
+th {
+    background-color: aqua;
+}
+td{
+    background-color: beige;
+}
+
+#enlaceReserva{
+    background-color: greenyellow;
+}
+
+#saludo{
+    text-align: center;
+}
+#botonReserva{
+    margin-top: 20px;
+    text-align: center;
 }

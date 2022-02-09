@@ -3,7 +3,11 @@ session_start();
 require "constantes.php";
 require "functions.php";
 
-
+// Seleccionamos o idiomo a gardamolo na COOKIE
+if (isset($_POST['idioma'])) {
+    $idioma = $_POST['idioma'];
+    setcookie('idioma', $idioma);
+}
 
 if (isset($_POST['enter'])) {
 
@@ -41,6 +45,8 @@ if (isset($_POST['enter'])) {
             $fila = $pdoStatement->fetch();
             $rolBBDD = $fila[4];
 
+
+
             $_SESSION['rol'] = $rolBBDD;
             $_SESSION['user'] = $user;
 
@@ -53,12 +59,9 @@ if (isset($_POST['enter'])) {
 }
 
 
-// Seleccionamos o idiomo a gardamolo na COOKIE
 
-if(!empty($_GET['idioma'])){
-    $idioma = $_GET['idioma'];
-        setcookie('idioma', $idioma);
-}
+
+
 
 if (isset($_GET['error'])) {
     echo "O usuario no existe";
@@ -66,8 +69,3 @@ if (isset($_GET['error'])) {
 
 // añadimos form de login
 include "login.html";
-
-?>
-
-
-

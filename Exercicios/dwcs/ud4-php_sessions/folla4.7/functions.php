@@ -16,13 +16,13 @@ function crearPass($pass)
 function saludarIdioma($idioma){
     switch ($idioma) {
         case 'galego':
-            $saludo="Ola, como estas?";
+            $saludo="<h1 id='saludo'>Ola, como estas?</h1>";
             break;
         case 'español':
-            $saludo="hola, ¿como estas?";
+            $saludo="<h1 id='saludo'>hola, ¿como estas?</h1>";
             break;
         case 'portugues':
-            $saludo="Olá, como está?";
+            $saludo="<h1 id='saludo'>Olá, como está?</h1>";
             break;
         default:
             $saludo="";
