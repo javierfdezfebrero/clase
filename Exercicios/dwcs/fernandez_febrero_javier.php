@@ -55,7 +55,7 @@
 
 <article id="taboa">
 <?php
-	include 'datosCurtocircuito.php';
+	include 'pinturas.php';
 	/* AQUÍ DEFINIR O PHP QUE MOSTRA A TÁBOA CO RESULTADO QUE CORRESPONDA  */
 	function curta ($array){
 		$curta = $_GET['nomeCurta'];
@@ -70,13 +70,13 @@
 			echo "<td>".$key."</td>";
 			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
+				
 			}
 			}
 		}
 		echo "</tr>";
 		echo "</table>";
-
-		echo "A curta mais longa é". $key . "con duracion de".$clave[1] ."minutos";  
+ 
 
 	}
 	function listadoCompleto ($array){
@@ -88,7 +88,7 @@
 		foreach ($array as $key => $value) {
 		echo "<tr>";
 		echo "<td>".$key."</td>";
-			foreach ($key as $clave => $valor) {
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -98,16 +98,16 @@
 
 	}
 	function poloDirector ($array){
-		$nuevoArray = array_sort($array, 0 , SORT_ASC);
+		asort($array);
 		echo "<table>";
 		echo "<th>Titulo</th>";
 		echo "<th>Director</th>";
 		echo "<th>Duracion</th>";
 		echo "<th>Pais</th>";
-		foreach ($nuevoArray as $key => $value) {
+		foreach ($array as $key => $value) {
 		echo "<tr>";
 		echo "<td>".$key."</td>";
-			foreach ($key as $clave => $valor) {
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -117,16 +117,16 @@
 
 	}
 	function poloTitulo ($array){
-		$nuevoArray = sort($array);
+		ksort($array);
 		echo "<table>";
 		echo "<th>Titulo</th>";
 		echo "<th>Director</th>";
 		echo "<th>Duracion</th>";
 		echo "<th>Pais</th>";
-		foreach ($nuevoArray as $key => $value) {
+		foreach ($array as $key => $value) {
 		echo "<tr>";
 		echo "<td>".$key."</td>";
-			foreach ($key as $clave => $valor) {
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -135,17 +135,22 @@
 		echo "</table>";
 
 	}
+
+
+
 	function decPais ($array){
-		$nuevoArray = array_sort($array, 2 , SORT_DESC);
+		$a= comparaCaracteresASC($array, 1);
+		print_r($a);
 		echo "<table>";
 		echo "<th>Titulo</th>";
 		echo "<th>Director</th>";
 		echo "<th>Duracion</th>";
 		echo "<th>Pais</th>";
-		foreach ($nuevoArray as $key => $value) {
+		foreach ($a as $key => $value) {
 		echo "<tr>";
 		echo "<td>".$key."</td>";
-			foreach ($key as $clave => $valor) {
+		
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -154,17 +159,28 @@
 		echo "</table>";
 
 	}
+
+	function comparaTamaño($a,$b)
+{
+     if(strlen($a)>strlen($b)){
+        return -1;
+     }else{
+        return 1;
+     }
+}
+
 	function lonxTitulo ($array){
-		$nuevoArray = array_sort($array, 2 , SORT_DESC);
+		uksort($array, 'comparaTamaño');
+		print_r($array);
 		echo "<table>";
 		echo "<th>Titulo</th>";
 		echo "<th>Director</th>";
 		echo "<th>Duracion</th>";
 		echo "<th>Pais</th>";
-		foreach ($nuevoArray as $key => $value) {
+		foreach ($array as $key => $value) {
 		echo "<tr>";
 		echo "<td>".$key."</td>";
-			foreach ($key as $clave => $valor) {
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -188,11 +204,11 @@
 		echo "<th>Pais</th>";
 		foreach ($array as $key => $value) {
 		echo "<tr>";
-		$keySinComas= substr_replace(',', '' , $key );
+		$keySinComas= str_replace(' ', ',' , $key );
 		echo "<td>".$keySinComas."</td>";
-			foreach ($key as $clave => $valor) {
-				$valorSinComas= substr_replace(',', '' , $valor );
-				echo "<td>".$valorSonComas."</td>";
+			foreach ($value as $clave => $valor) {
+				$valorSinComas= str_replace(' ', ',' , $valor );
+				echo "<td>".$valorSinComas."</td>";
 			}
 			
 		}
@@ -208,21 +224,17 @@
 		echo "<th>Pais</th>";
 		foreach ($array as $key => $value) {
 		echo "<tr>";
-		if (in_array('Portugal', $key)) {
-			$keySinComas= substr_replace('Potugal', 'Galiza' , $key );
-		}else{
-			$keySinComas=$key;
-		}
 		
-		echo "<td>".$keySinComas."</td>";
-			foreach ($key as $clave => $valor) {
-				if (in_array('Portugal', $valor)) {
-					$valorSinComas= substr_replace('Portugal', 'Galiza' , $valor );
+		
+		echo "<td>".$key."</td>";
+			foreach ($value as $clave => $valor) {
+				if (in_array('marruecos', $value)) {
+					$valorSinComas= str_replace('marruecos', 'Galiza' , $valor );
 				}else{
-					$keySinComas=$valor;
+					$valorSinComas=$valor;
 				}
 				
-				echo "<td>".$valorSonComas."</td>";
+				echo "<td>".$valorSinComas."</td>";
 			}
 			
 		}
@@ -231,19 +243,7 @@
 
 	}
 
-	function cambiarMaiuscula($array){
-		foreach ($array as $key => $value) {
-			if ($key[1]) {
-				strtoupper($key[1]);
-				
-			}
-			if ($key[6]) {
-				strtoupper($key[6]);
-				
-			}
-			
-		}
-	}
+
 	function maiusculas ($array){
 		echo "<table>";
 		echo "<th>Titulo</th>";
@@ -252,8 +252,14 @@
 		echo "<th>Pais</th>";
 		foreach ($array as $key => $value) {
 		echo "<tr>";
-		echo "<td>".cambiarMaiuscula($key)."</td>";
-			foreach ($key as $clave => $valor) {
+		
+		
+		$key[1]= strtoupper($key[1]);
+		$key[2]= strtoupper($key[2]);
+
+
+		echo "<td>".$key."</td>";
+			foreach ($value as $clave => $valor) {
 				echo "<td>".$valor."</td>";
 			}
 			
@@ -263,18 +269,18 @@
 
 	}
 	function franceFirst ($array){
-		
+			$a= francia($array,1);
 			echo "<table>";
 			echo "<th>Titulo</th>";
 			echo "<th>Director</th>";
 			echo "<th>Duracion</th>";
 			echo "<th>Pais</th>";
-			foreach ($array as $key => $value) {
+			foreach ($a as $key => $value) {
 			echo "<tr>";
 			echo "<td>".$key."</td>";
-				foreach ($key as $clave => $valor) {
-						$nArray= array_reverse($valor);
-						echo "<td>".$nArray."</td>";
+				foreach ($value as $clave => $valor) {
+				
+						echo "<td>".$valor."</td>";
 					
 				}
 				
@@ -293,58 +299,97 @@
 		echo "<th>Duracion</th>";
 		echo "<th>Pais</th>";
 		foreach ($array as $key => $value) {
-		echo "<tr>";
-			foreach ($key as $clave => $valor) {
-				if($clave[1]> $duracion){
-					echo "<td>".$key."</td>";
-					foreach ($key as $clave => $valor) {
-					echo "<td>".$valor."</td>";
-					}
-				}
-			}
-			}
-			
 		
-		echo "</tr>";
-		echo "</table>";
-		echo "A curta mais longa é". $key . "con duracion de".$clave[1] ."minutos";  
+				if($value[2] > $duracion){
+				echo "<tr>";
+				echo "<td>".$key."</td>";
+				foreach ($value as $clave => $valor) {
+					echo "<td>".$valor."</td>";
+
+				}
+					$nombre= $key;
+					$dur=$value[2];
+
+					
+		
+				
+					
+				
+			}
+		
+			}
+			echo "</tr>";
+			echo "</table>";
+		echo "A curta mais longa é". $nombre . "con duracion de".$dur ."minutos";  
+		
+		
 
 	}
 
-	if ($_GET['curta']) {
-		curta($curtas);
+	function comparaCaracteresASC($a,$b)
+{
+	foreach ($a as $key => $value) {
+		$array[$key]=$value[$b];
+	}
+	asort($array);
+	foreach ($array as $k => $v) {
+		$ordenado[$k]=$a[$k];
+	}
+	return $ordenado;
+}
+function francia($a,$b)
+{
+	foreach ($a as $key => $value) {
+		if($value[$b]=='francia'){
+			$array[$key]=$value[$b];
+		}
+	}
+	foreach ($a as $key => $value) {
+		if($value[$b]!='francia'){
+			$array[$key]=$value[$b];
+		}
+	}
+	
+	foreach ($array as $k => $v) {
+		$ordenado[$k]=$a[$k];
+	}
+	return $ordenado;
+}
+
+	if (isset($_GET['curta'])) {
+		curta($pinturas);
 	}
 
-	if ($_GET['listadoCompleto']) {
-		listadoCompleto($curtas);
+	if (isset($_GET['listadoCompleto'])) {
+		listadoCompleto($pinturas);
 	}
 
-	if ($_GET['poloDirector']) {
-		poloDirector($curtas);
+	if (isset($_GET['poloDirector'])) {
+		poloDirector($pinturas);
 	}
-	if ($_GET['poloTitulo']) {
-		poloTitulo($curtas);
+	if (isset($_GET['poloTitulo'])) {
+		poloTitulo($pinturas);
 	}
-	if ($_GET['decPais']) {
-		decPais($curtas);
+	if (isset($_GET['decPais'])) {
+		decPais($pinturas);
 	}
-	if ($_GET['lonxTitulo']) {
-		lonxTitulo($curtas);
+	if (isset($_GET['lonxTitulo'])) {
+		lonxTitulo($pinturas);
 	}
-	if ($_GET['eliminaComas']){
-		eliminaComas($curtas);
+	if (isset($_GET['eliminaComas'])){
+		eliminaComas($pinturas);
 	}
-	if ($_GET['cambioPTGZ']){
-		cambioPTGZ($curtas);
+	if (isset($_GET['cambioPTGZ'])){
+		cambioPTGZ($pinturas);
 	}
-	if ($_GET['maiusculas']){
-		maiusculas($curtas);
+	if (isset($_GET['maiusculas'])){
+		maiusculas($pinturas);
 	}
-	if ($_GET['franceFirst']){
-		franceFirst($curtas);
+	if (isset($_GET['franceFirst'])){
+		franceFirst($pinturas);
 	}
-	if ($_GET['buscarDur']){
-		buscarDur($curtas);
+	if (isset($_GET['buscarDur'])){
+		buscarDur($pinturas);
 	}
 
 
