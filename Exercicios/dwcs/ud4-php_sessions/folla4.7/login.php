@@ -44,11 +44,12 @@ if (isset($_POST['enter'])) {
             $pdoStatement->execute();
             $fila = $pdoStatement->fetch();
             $rolBBDD = $fila[4];
-
+            $idUser = $fila[0];
 
 
             $_SESSION['rol'] = $rolBBDD;
             $_SESSION['user'] = $user;
+            $_SESSION['idUser'] = $idUser;
 
             header('Location: mostra.php');
         }
