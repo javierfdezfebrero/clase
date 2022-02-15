@@ -15,7 +15,7 @@ if (empty($_SESSION['rol']) ) {
     header("location: ../login.php");
 }
 
-if (isset($_SESSION['rol'])=="usuario") {
+if (isset($_SESSION['rol']) && $_SESSION['rol'] =="usuario") {
 
     try {
         // establecemos conexion e realizamos a consulta
