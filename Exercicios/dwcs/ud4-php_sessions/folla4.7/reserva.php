@@ -31,15 +31,33 @@ if (isset($_SESSION['rol'])) {
             } catch (PDOException $e) {
                 echo "Erro ao conectar co servidor MySQL: " . $e->getMessage();
             }
+            try {
+                // establecemos conexion e realizamos a consulta
+                $pdo = entrarBase($servidor, $base, $usuario, $passwd);
+                $pdoStatement = $pdo->prepare("SELECT * from comentarios where idProducto like :id");
+                $id=$_GET['id'];
+                $datosComentarios=array('id'=>$id);
+                if (!$pdoStatement->execute($datosComentarios)) {
+                    echo "Houbo un erro o gardar os datos";
+                } else {
+                    
+                    echo "<table><tr><th>Comentarios</th><th>Fecha</th><th>Usuario</th></tr>";
+                    while ($fila = $pdoStatement->fetch(PDO::FETCH_ASSOC))
+                        echo "<tr><td>" . $fila['comments'] . " </td><td>" . $fila['data'] . " </td><td>" . $fila['user'] . "</td></tr>";
+                    echo "<table>";
+                    echo "<div>
+                    <button> <a href='reserva.php?id=". $id ."&action=deixarComentario' >Deixar Comentario</a></button>
+                    </div>";
+                }
+            } catch (PDOException $e) {
+                echo "Erro ao conectar co servidor MySQL: " . $e->getMessage();
+            }
+            
 
     }
 }
 ?>
-<div id="botonReserva">
-<button href="reserva.php?id=<?php echo $id; ?>&action=deixarComentario">Deixar Comentario</button>
-<button href="reserva.php?id=<?php echo $id; ?>&action=modificacionComentario">Modificar Comentario</button>
 
-</div>
 
 <?php
 
@@ -66,6 +84,9 @@ if(isset($_GET['ahoraAlugar'])){
         if (!$pdoStatement->execute($datos)) {
             echo "Houbo un erro o gardar os datos";
         } else {
+            echo "<div>
+            <button> <a href='reserva.php?id=". $id ."' >Volver o Producto</a></button>
+            </div>";
             echo 'Xa pode disfrutar da sua estancia';
 
             
@@ -90,6 +111,9 @@ if(isset($_GET['action']) && $_GET['action']== 'baixa'){
         if (!$pdoStatement->execute($datos)) {
             echo "Houbo un erro o gardar os datos";
         } else {
+            echo "<div>
+            <button> <a href='reserva.php?id=". $id ."' >Volver o Producto</a></button>
+            </div>";
             echo 'Anulouse a reserva';
 
         }
@@ -98,11 +122,40 @@ if(isset($_GET['action']) && $_GET['action']== 'baixa'){
     }
 }
 
-if(isset($_GET[''])){
+if(isset($_GET['action']) && $_GET['action']== 'deixarComentario'){
+    echo '<form id="estiloForm" action="reserva.php" method="get">
+    <textarea type="text" name="comentario" id="" placeholder="Comentario"> </textarea>
+    <button type="submit"  name="altaComentario">Deixar comentario</button>
+
+</form>';
 }
-if(isset($_GET[''])){
-}
-if(isset($_GET[''])){
+
+
+if(isset($_GET['altaComentario'])){
+    try {
+        // establecemos conexion e realizamos a consulta
+        $pdo = entrarBase($servidor, $base, $usuario, $passwd);
+       
+            $comentario= strip_tags($_GET['comentario']);
+            $user=$_SESSION['nomeUser'];
+            $data = date("Y-m-d H:i:s");  
+            $id= $_SESSION['idProducto'];
+
+            $pdoStatement = $pdo->prepare("INSERT INTO comentarios( comments,  user, data, idProducto) VALUES (:comentario, :user, :data, :idProducto)");
+            $datosProducto= array('comentario'=>$comentario, 'user'=>$user,'data'=>$data, 'idProducto'=>$id);
+
+        if (!$pdoStatement->execute($datosProducto)) {
+            echo "Houbo un erro o gardar os datos";
+        } else {
+            echo "<div>
+                    <button> <a href='reserva.php?id=". $id ."' >Volver o Producto</a></button>
+                    </div>";
+          echo "Comentario añadido";
+           
+        }
+    } catch (PDOException $e) {
+        echo "Erro ao conectar co servidor MySQL: " . $e->getMessage();
+    }
 }
 
 ?>
