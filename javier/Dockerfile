@@ -2,25 +2,20 @@ FROM debian:stable
 
 MAINTAINER javier@zadiasoftware.com
 
-RUN mkdir /opt/tomcat/
-RUN apt-get update
+RUN mkdir ~/Proxectos
+WORKDIR ~/Proxectos
+RUN apt update
 RUN apt-get install curl -y
+RUN curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+RUN apt-get install -y nodejs -y
+RUN npm install -g @angular/cli
+RUN ng new Proxecto
 
-ENV VERSION_TOM 5.5.23
+WORKDIR ~/Proxectos/Proxecto
+RUN cd ~/Proxectos/Proxecto && ng serve &
 
-WORKDIR /opt/tomcat
-RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-5/v$VERSION_TOM/bin/apache-tomcat-$VERSION_TOM.tar.gz
-RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-$VERSION_TOM/* /opt/tomcat/.
-RUN apt install openjdk-17-jdk openjdk-17-jre -y
-RUN java -version
-RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-RUN export PATH=$PATH:$JAVA_HOME/bin
-RUN echo $JAVA_HOME
+VOLUME /home/SANCLEMENTE/a15javierff/clases/clase/javier/Angular ~/Proxectos/Proxecto/src
 
-WORKDIR /opt/tomcat/webapps
-# RUN curl -O -L <<archivo de proxecto>>
 
-EXPOSE 8080
+EXPOSE 4200
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
