@@ -31,3 +31,7 @@ function saludarIdioma($idioma){
 
     return $saludo;
 }
+
+function consultaBBDD(){
+    
+}

@@ -1,7 +1,7 @@
 <?php
 
 $servidor="db-pdo";
-$usuario="root";
-$passwd="root";
-$base="proba";
+$usuario="tarefa";
+$passwd="Tarefa4.7";
+$base="tarefa";
 

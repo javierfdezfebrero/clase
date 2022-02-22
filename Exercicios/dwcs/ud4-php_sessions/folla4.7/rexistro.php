@@ -9,7 +9,7 @@ if (!isset($_GET['rexistrarse'])) {
     header("location: rexistro.html");
 }
 
-$user = $_GET['user'];
+$user = strip_tags($_GET['user']);
 $contrasinal = $_GET['contrasinal'];
 $rol = $_GET['rol'];
 

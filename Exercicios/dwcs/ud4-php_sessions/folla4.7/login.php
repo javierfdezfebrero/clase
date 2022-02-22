@@ -1,12 +1,18 @@
 <?php
 session_start();
+
 require "constantes.php";
 require "functions.php";
+
+if(!isset($_SESSION['marcadecontrol'])){
+    session_regenerate_id(true); //borrarmos o ficheiro da ID da sesión anterior
+    $_SESSION['marcadecontrol']= true;
+    }
 
 // Seleccionamos o idiomo a gardamolo na COOKIE
 if (isset($_POST['idioma'])) {
     $idioma = $_POST['idioma'];
-    setcookie('idioma', $idioma);
+    setcookie('idioma', $idioma, time( )+300);
 }
 
 if (isset($_POST['enter'])) {
@@ -45,11 +51,13 @@ if (isset($_POST['enter'])) {
             $fila = $pdoStatement->fetch();
             $rolBBDD = $fila[4];
             $idUser = $fila[0];
+            $nomeUser = $fila[1];
 
 
             $_SESSION['rol'] = $rolBBDD;
             $_SESSION['user'] = $user;
             $_SESSION['idUser'] = $idUser;
+            $_SESSION['nomeUser'] = $nomeUser;
 
             header('Location: mostra.php');
         }
