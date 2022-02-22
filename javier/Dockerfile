@@ -3,18 +3,23 @@ FROM debian:stable
 MAINTAINER javier@zadiasoftware.com
 
 RUN mkdir /opt/tomcat/
+RUN apt-get update
+RUN apt-get install curl -y
 
 ENV VERSION_TOM 5.5.23
 
 WORKDIR /opt/tomcat
 RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-5/v$VERSION_TOM/bin/apache-tomcat-$VERSION_TOM.tar.gz
 RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
-RUN apt install default-jre default-jdk 
+RUN mv apache-tomcat-$VERSION_TOM/* /opt/tomcat/.
+RUN apt install openjdk-17-jdk openjdk-17-jre -y
 RUN java -version
+RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+RUN export PATH=$PATH:$JAVA_HOME/bin
+RUN echo $JAVA_HOME
 
 WORKDIR /opt/tomcat/webapps
-RUN curl -O -L <<archivo de proxecto>>
+# RUN curl -O -L <<archivo de proxecto>>
 
 EXPOSE 8080
 
