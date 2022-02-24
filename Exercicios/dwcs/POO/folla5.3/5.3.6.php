@@ -1,9 +1,7 @@
 <!-- 6. Lanzamento de excepcións. Interface. Modifica o exercicio 1 para que empregue a seguinte interface:
-<?php
 interface Comparar {
  public function comparar($value);
 }
-?>
 Engade nos artigos unha propiedade prezo, que será o que comparemos. Cando mostramos un artigo
 queremos ver tamén este valor. O método comparar( ) comprobará que o obxecto recibido é de tipo Artigo,
 se non lanzará unha excepción cunha mensaxe
