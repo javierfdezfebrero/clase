@@ -15,13 +15,15 @@ if (isset($_GET['todos'])) {
 }
 
 if (isset($_GET['borrarClientePorMail'])) {
+    $mensaxe= 'Borrado CLiente';
     $mail = $_GET['mail'];
     clienteModelo::borrarPorMail($mail);
 
-    mostraMensaxeBorrar();
+    mostraMensaxeBorrar($mensaxe);
 }
 
 if (isset($_GET['inserirCliente'])) {
+    $mensaxe= 'Inserido CLiente';
     $nome = $_GET['nome'];
     $apelidos = $_GET['apelidos'];
     $mail = $_GET['mail'];
@@ -29,10 +31,11 @@ if (isset($_GET['inserirCliente'])) {
     
     $cliente->gardar();
 
-    mostraMensaxeBorrar();
+    mostraMensaxeBorrar(  $mensaxe);
 }
 
 if (isset($_GET['buscar'])) {
+    
     $mail = $_GET['mail'];
     $clientes = ClienteModelo::buscarPorMail($mail); //UN PDOStatement. O CONTROLADOR PIDE DATOS
     // AO CONTROLADOR

@@ -32,8 +32,8 @@ td></tr>";
     /* O RESTO DAS FUNCIÓNS PARA MOSTRAR NA PÁXINA */
     //...
     
-    function mostraMensaxeBorrar(){
-        echo "Cliente borrado";
+    function mostraMensaxeBorrar($mensaxe){
+        echo $mensaxe;
     }
     ?>
 </body>
