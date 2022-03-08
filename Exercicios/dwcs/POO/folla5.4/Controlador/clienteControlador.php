@@ -45,3 +45,14 @@ if (isset($_GET['buscar'])) {
     }
     mostraTaboaCliente($clienteArray); //CHAMO Á FUNCIÓN NA PARTE DA VISTA, PARA MOSTRAR
 }
+if (isset($_GET['actualizarCliente'])) {
+    
+    $mail = $_GET['mail'];
+    $clientes = ClienteModelo::buscarPorMail($mail); //UN PDOStatement. O CONTROLADOR PIDE DATOS
+    // AO CONTROLADOR
+    // CONVIRTO A UN ARRAY E O DEVOLVO
+    while ($fila = $clientes->fetch(PDO::FETCH_ASSOC)) {
+        $clienteArray[] = $fila;
+    }
+    mostraTaboaCliente($clienteArray); //CHAMO Á FUNCIÓN NA PARTE DA VISTA, PARA MOSTRAR
+}

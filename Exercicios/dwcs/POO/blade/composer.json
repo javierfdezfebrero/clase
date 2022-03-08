@@ -1,0 +1,17 @@
+{
+    "name": "a15javierff/blade",
+    "description": "proba blade",
+    "type": "project",
+    "require": {
+        "philo/laravel-blade": "^3.1"
+    },
+    "config": {
+        "optimize-autoloader": true
+        },
+        "autoload": {
+            "psr-4": {
+                "Clases\\": "src"
+        }
+    },
+    "license": "GPL"
+}
