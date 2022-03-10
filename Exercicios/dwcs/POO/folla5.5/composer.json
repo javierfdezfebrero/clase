@@ -1,0 +1,22 @@
+{
+    "name": "a15javierff/folla5.5",
+    "description": "Folla5.5 Blade Proba",
+    "license": "GPU",
+    "authors": [
+        {
+            "name": "Javier Fdez",
+            "email": "javiferfeb@live.com"
+        }
+    ],
+    "require": {
+        "philo/laravel-blade": "^3.1"
+    },
+    "config": {
+        "optimize-autoloader": true
+        },
+        "autoload": {
+            "psr-4": {
+                "Clases\\": "src"
+        }
+    }
+}
