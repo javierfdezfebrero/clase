@@ -7,18 +7,35 @@
 @endsection
 @section('contenido')
 @foreach($array as $item)
+<form method="POST" action="../public/portadas.php">
 @if($item[0]=="Productos")
-<label for="">
-    {{ $label }}
-</label>
-<input type="text" name="nomeProducto">
+    <label for="">
+        {{ $label }}
+    </label>
+    <input type="text" name="nomeProducto">
 
 @endif
 
-<a href="{{ $item[1] }}"><button>{{ $item[0] }} </button>
-   
-</a>
+@if($item[0]=="Familias")
+    <label for="">
+        Indica unha familia para buscar
+    </label>
+    
+    <select name="familia" id="">
+        
+        @foreach ($familiasArray as $familia)
+        <option value="{{ $familia->cod  }}">{{ $familia->nombre }}</option>
+        @endforeach
+    </select>
 
+@endif
+
+<button type="submit" name="{{ $item[0] }}">{{ $item[0] }}</button>
+   
+
+
+
+</form>
 @endforeach
 
 @endsection

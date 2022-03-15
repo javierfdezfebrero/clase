@@ -8,7 +8,15 @@ $blade = new Blade($views, $cache);
 $titulo = 'Productos';
 $encabezado = 'Listado de Productos';
 $producto = new Producto();
-$arrayProductos = $producto->recuperarProductos();
+
+
+if(isset($_GET['nomeProducto'])){
+    $nome=$_GET['nomeProducto'];
+    $arrayProductos = $producto->recuperarProductosPorNome($nome);
+}else{
+    $arrayProductos = $producto->recuperarProductos();
+}
+
 echo $blade
  ->view()
  ->make('vistaProductos', compact('titulo', 'encabezado', 'arrayProductos'))
