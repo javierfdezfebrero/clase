@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Multimedia-HTML5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="imaxen">
+      <img src="foto-1.png" alt="" />
+    </div>
+
+    <div class="audio">
+      <audio src="Javier.mp3" autoplay controls loop muted>
+        Estase a reproducir <code>Javier</code> audio.
+      </audio>
+    </div>
+    <div class="video">
+      <video autoplay controls>
+        <source src="video.webm" type="video/webm"/>
+        <track
+          src="subtitulos.vtt"
+          kind="subtitles"
+          srclang="es"
+          label="Spanish"
+        />
+      </video>
+    </div>
+
+    <div class="div-frame">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/Fi-FQkEYilw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
+</html>
