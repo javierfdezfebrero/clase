@@ -12,7 +12,7 @@
 
 -CREATE DATABASE moodle
 -create user 'moodle'@'localhost' IDENTIFIED BY 'pass'
--GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodledude@localhost IDENTIFIED BY 'passwordformoodledude';
+-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER /*(ALL)*/ ON moodle.* TO moodledude@localhost IDENTIFIED BY 'passwordformoodledude';
 
 -sudo chmod -R 777 /var/www/html/moodle
 
